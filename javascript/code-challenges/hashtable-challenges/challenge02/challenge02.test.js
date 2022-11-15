@@ -1,20 +1,11 @@
-const { firstWordRepet } = require('./challenge02');
+'use strict';
 
-describe('HashTable Challenge-02', () => {
-  test('firstWordRepet function test-01', () => {
-    let str = 'ASAC is a department at LTUC. ASAC teaches programming in LTUC.';
-    let word = firstWordRepet(str);
-    expect(word).toEqual('ASAC');
-  });
-  test('firstWordRepet function test-02', () => {
-    let str = 'is a department at LTUC. ASAC teaches programming in LTUC.';
-    let word = firstWordRepet(str);
-    expect(word).toEqual('LTUC.');
-  });
-  test('firstWordRepet function test-03', () => {
-    let str = 'is a department at LTUC. ASAC teaches programming in .';
-    let word = firstWordRepet(str);
-    expect(word).toEqual('No Repetition');
-  });
+const { HashTable } = require( './challenge02.js' );
 
-});
+describe( 'Testing challenge 02', () => {
+    test( 'It should return the first repeated word', () => {
+        let hashTable = new HashTable();
+        expect( hashTable.firstRepeatedWord( 'ASAC is a department at LTUC. ASAC teaches programming in LTUC.' ) ).toStrictEqual( 'ASAC' );
+        expect( hashTable.firstRepeatedWord( 'I am learning programming in ASAC.' ) ).toStrictEqual( 'No Repetition' );
+    } );
+} );
